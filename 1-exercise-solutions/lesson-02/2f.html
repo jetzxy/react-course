@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2f</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function ProductDetails({productName, productPrice}) {
+        return (
+            <div>
+                <p>{productName}</p>
+                <p>Price: ${productPrice}</p>
+                <button>Add to Cart</button>
+            </div>
+        );
+      }
+
+      function App() {
+        return (
+            <>
+                <ProductDetails productName="Cotton socks" productPrice={10.90} />
+                <ProductDetails productName="Tennis balls" productPrice={6.00} />
+                <ProductDetails productName="Plain T-Shirt" productPrice={7.99} />
+            </>
+        );
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
