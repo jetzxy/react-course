@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3h</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+    
+      
+      function App() {
+        const [inputName, setInputName] = React.useState("");
+
+        function handleChange(e) {
+            setInputName(e.target.value);
+        }
+
+        function resetInput() {
+            setInputName("");
+        }
+
+        function setExample() {
+            setInputName("Alice");
+        }
+
+        return (
+            <>
+                <div>
+                    <input value={inputName} onChange={handleChange} type="text" placeholder="Type a name here" />
+                    <button onClick={resetInput}>Reset</button>
+                    <button onClick={setExample}>Example</button>
+                </div>
+                <p>Hello {inputName}</p>
+            </>
+        );
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

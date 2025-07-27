@@ -13,13 +13,13 @@
     <script type="text/babel">
 
     
-      function Counter({count, setCount}) {
-        function increaseCount() {
-          setCount(count + 1);
-        }
+      function Counter({count, onClick }) {
+        // function increaseCount() {
+        //   setCount(count + 1);
+        // }
         
         return(
-            <button onClick={increaseCount}>
+            <button onClick={onClick}>
                 Click {count === 1 ? `${count} time`: `${count} times`} 
             </button>
         );
@@ -28,10 +28,14 @@
       function App() {
         const [count, setCount] = React.useState(0);
 
+        function increaseCount() {
+          setCount(count + 1);
+        }
+
         return (
             <>
-                <Counter count={count} setCount={setCount} />
-                <Counter count={count} setCount={setCount} />
+                <Counter count={count} onClick={increaseCount} />
+                <Counter count={count} onClick={increaseCount} />
                 <button onClick={() => setCount(0)}>Reset</button>
             </>
         );
